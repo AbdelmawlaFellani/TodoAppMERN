@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Silkscreen';
+  src: url("./Assets//Fonts/Silkscreen-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: 'PressStart2P';
+  src: url("./Assets//Fonts/PressStart2P-Regular.ttf") format("truetype");
+}
+.text-stroke{
+  -webkit-text-stroke: 3px #1e3445;
+  text-shadow: 
+  -4px -4px 0 #1E3445 ,
+   4px -4px 0 #1E3445, 
+    -2px 8px 0 #1E3445, 
+    7px 7px 0 #1E3445;
+} 
+*{
+  box-sizing: border-box;
+}
+.button {
+  box-shadow:   -4px 0 0 0 #1E3445,
+                 7px 0 0 0 #1E3445,
+                 0 -3px 0 0 #1E3445,
+                 0 6px 0 0 #1E3445;
+}
+.pixel-button-add {
+  width: 85px;
+  height: 40px;
+  background-image: url('Assets/add.png');
+  background-repeat: no-repeat
+}
+.pixel-add {
+  width: 42px;
+  height: 42px;
+  background-image: url('Assets/Done.png');
+  background-repeat: no-repeat
+} 
+.pixel-delete {
+  width: 42px;
+  height: 42px;
+  background-image: url('Assets/delete.png');
+  background-repeat: no-repeat
+} 
+/* Background */

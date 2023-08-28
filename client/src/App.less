@@ -1,0 +1,106 @@
+// @import "lesshat";
+
+#Clouds {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  margin: auto;
+  height: 30%;
+  overflow: hidden;
+  animation: FadeIn 3.1s ease-out;
+  -webkit-user-select:none;
+  user-select: none;
+}
+
+@keyframes FadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@duration: 120s;
+
+.Cloud { 
+  position: absolute;
+  width: 100%;
+  outline: solid 1px #F00;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  height: 70px;
+  animation-duration: @duration;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  animation-name: Float, FadeFloat;
+  z-index: 1;
+}
+
+@height: 30%;
+
+.Cloud.Foreground { 
+  height: @height;
+  min-height: 20px;
+  z-index: 3;
+}
+.Cloud.Background { 
+  height: @height / 1.1; 
+  min-height: 8px;
+  animation-duration: @duration * 1.75;
+  //animation-delay: -2s;
+}
+
+@keyframes Float {
+  from { transform: translateX(100%) translateZ(0); }
+  to { transform: translateX(-15%) translateZ(0); }
+}
+
+/*
+@keyframes Float {
+  from { transform: translateX(100%) translateY(-100%) translateZ(0); }
+  50% { transform: translateX(55%) translateY(0) translateZ(0); }
+  to { transform: translateX(-5%) translateY(-100%) translateZ(0); }
+}
+*/
+
+@keyframes FadeFloat {
+  0%, 100% { opacity: 0; }
+  5%, 90% { opacity: 1; }
+}
+
+.Cloud-Loop (@delay, @i) when (@i > 0) { 
+  .Cloud:nth-child(@{i}) { 
+    animation-delay: (@delay * @i ); 
+    top: unit( @i * 6);
+  }
+  .Cloud.Foreground:nth-child(@{i}) {
+    animation-duration: (@duration - (@i * 4));
+    height: (@height + (@i * 2.5));
+  }
+  .Cloud.Background:nth-child(@{i}) {
+    animation-duration: (@duration * 1.25 - (@i * 4));
+    //animation-duration: ((@duration * 1.75) - (@i * 2) );
+    height: ((@height / 1.1) - (@i * 1.25));
+  }
+  
+  .Cloud-Loop(@delay, (@i - 1)); // Keep Looping
+}
+.Cloud-Loop (0) {} // End loop
+.Cloud-Loop ((@duration / 6.5 ) * -1, 10);
+
+
+.Cloud { 
+  background-image: url(../Assets/Cloud.png);
+}
+
+.Cloud.Background {
+  background-image: url(../Assets/Background.png);
+}
+
+
+// Presentational
+html, body { margin: 0; padding: 0; }
+html { height: 100%; } body { min-height: 100%; }
+
+body {
+  color: #FFF;
+  background-color: #FD940A;
+  background-image: radial-gradient(circle, #F9A72B 0%, #FA9026 70%, #FB6C1F 100%);
+}
