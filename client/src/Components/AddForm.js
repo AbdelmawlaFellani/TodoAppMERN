@@ -1,19 +1,53 @@
-import { AButton, CButton, PButton } from "./CButton";
-import React from "react";
+import axios from "axios";
+import { AButton } from "./Buttons";
+import React, { useState } from "react";
 
-function AddForm() {
+function AddForm({ addTask }) {
+  const [task, setTask] = useState({
+    title: ''
+  });
+
+  function HandleSubmit(e) {
+    e.preventDefault();
+
+    if (task.title.trim() !== "") {
+      addTask(task);
+      axios
+      .post("http://localhost:4000/api/tasks/new", task)
+      .then((res) => {
+        setTask({ title: "" });
+      })
+      .catch((err) => {
+        console.log("error in Adding task: " + err.message);
+      });
+    }
+  }
+
+  const onChange = (e) => setTask({ ...task, title: e.target.value });
+
   return (
-    <div>
-      <div className="flex justify-center pb-5 text-colortext font-GameText text-xl">Add Task</div>
-      <div className="flex justify-center gap-5">
+    <form onSubmit={HandleSubmit}>
+      <label
+        htmlFor="taskInput"
+        className="flex font-bold justify-center pb-5 text-colortext font-GameText text-2xl"
+      >
+        Add Task
+      </label>
+      <div className="flex justify-center gap-3 ">
         <input
+          name="taskInput"
+          id="taskInput"
           className="button font-GameText py-1 px-2 text-colortext"
           type="text"
+          value={task.title}
+          onChange={onChange}
           placeholder="Add New Task"
         />
-        <PButton />
+        <button type="submit">
+          <AButton />
+        </button>
       </div>
-    </div>
+    </form>
   );
 }
 

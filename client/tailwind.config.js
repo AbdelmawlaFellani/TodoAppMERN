@@ -5,6 +5,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontSize:{
+        xxs: '5px'
+      },
       fontFamily:{
         GameTitle : 'PressStart2P',
         GameText :  'Silkscreen'

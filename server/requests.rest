@@ -1,0 +1,10 @@
+GET http://localhost:4000/api/tasks
+
+###
+
+POST http://localhost:4000/api/tasks/new
+Content-Type: application/json
+
+{
+    "title": "Learning"
+}

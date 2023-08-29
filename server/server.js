@@ -1,20 +1,20 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config({ path: "./config/.env" });
-const port = process.env.PORT || 4000;
 
 const app = express();
+app.use(express.json());
+app.use(cors());
+const Tasks = require("./api/tasks");
+
+const port = process.env.PORT || 4000;
 
 const dbo = require("./db/conn.js");
+// const Task = require("./models/task");
 
 dbo
   .connectToServer()
   .then(() => app.listen(port, () => console.log(`App listening on ${port}`)))
   .catch((err) => console.error(err));
 
-app.use(cors());
-
-app.use(express.json());
-
-app.get("/", (req, res) => res.send("To Do App !!"));
-
+  app.use("/api/tasks", Tasks);

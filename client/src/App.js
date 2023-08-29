@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from './Pages/HomePage';
 import CompletedPage from './Pages/CompletedPage';
 import Background from "./Components/Background";
-import './App.css'
 
 
 function App() {
+  
   return (
     <Router>
 

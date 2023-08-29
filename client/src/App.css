@@ -1,0 +1,204 @@
+
+
+#Clouds {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 250px;
+  left: 0;
+  margin: auto;
+  
+  overflow: hidden;
+  animation: FadeIn 3.1s ease-out;
+  z-index: -1;
+}
+@keyframes FadeIn {
+  from {
+    opacity: 0;
+ }
+  to {
+    opacity: 1;
+ }
+}
+.Cloud {
+  position: absolute;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  height: 70px;
+  animation-duration: 120s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+  animation-name: Float, FadeFloat;
+  z-index: 1;
+  -webkit-user-select: auto;
+  user-select: auto;
+}
+.Cloud.Foreground {
+  height: 35%;
+  min-height: 20px;
+  z-index: 3;
+}
+.Cloud.Background {
+  height: 9.0909090909091%;
+  min-height: 8px;
+  animation-duration: 210s;
+}
+@keyframes Float {
+  from {
+    transform: translateX(100%) translateZ(0);
+ }
+  to {
+    transform: translateX(-15%) translateZ(0);
+ }
+}
+@keyframes FadeFloat {
+  0%, 100% {
+    opacity: 0;
+ }
+  5%, 90% {
+    opacity: 1;
+ }
+}
+.Cloud:nth-child(10) {
+  animation-delay: -184.61538461538s;
+  top: 60;
+}
+.Cloud.Foreground:nth-child(10) {
+  animation-duration: 80s;
+  height: 35%;
+}
+.Cloud.Background:nth-child(10) {
+  animation-duration: 110s;
+  height: -3.4090909090909%;
+}
+.Cloud:nth-child(9) {
+  animation-delay: -166.15384615385s;
+  top: 54;
+}
+.Cloud.Foreground:nth-child(9) {
+  animation-duration: 84s;
+  height: 32.5%;
+}
+.Cloud.Background:nth-child(9) {
+  animation-duration: 114s;
+  height: -2.1590909090909%;
+}
+.Cloud:nth-child(8) {
+  animation-delay: -147.69230769231s;
+  top: 48;
+}
+.Cloud.Foreground:nth-child(8) {
+  animation-duration: 88s;
+  height: 30%;
+}
+.Cloud.Background:nth-child(8) {
+  animation-duration: 118s;
+  height: -0.90909090909091%;
+}
+.Cloud:nth-child(7) {
+  animation-delay: -129.23076923077s;
+  top: 42;
+}
+.Cloud.Foreground:nth-child(7) {
+  animation-duration: 92s;
+  height: 27.5%;
+}
+.Cloud.Background:nth-child(7) {
+  animation-duration: 122s;
+  height: 0.34090909090909%;
+}
+.Cloud:nth-child(6) {
+  animation-delay: -110.76923076923s;
+  top: 36;
+}
+.Cloud.Foreground:nth-child(6) {
+  animation-duration: 96s;
+  height: 25%;
+}
+.Cloud.Background:nth-child(6) {
+  animation-duration: 126s;
+  height: 1.5909090909091%;
+}
+.Cloud:nth-child(5) {
+  animation-delay: -92.307692307692s;
+  top: 30;
+}
+.Cloud.Foreground:nth-child(5) {
+  animation-duration: 100s;
+  height: 22.5%;
+}
+.Cloud.Background:nth-child(5) {
+  animation-duration: 130s;
+  height: 2.8409090909091%;
+}
+.Cloud:nth-child(4) {
+  animation-delay: -73.846153846154s;
+  top: 24;
+}
+.Cloud.Foreground:nth-child(4) {
+  animation-duration: 104s;
+  height: 20%;
+}
+.Cloud.Background:nth-child(4) {
+  animation-duration: 134s;
+  height: 4.0909090909091%;
+}
+.Cloud:nth-child(3) {
+  animation-delay: -55.384615384615s;
+  top: 18;
+}
+.Cloud.Foreground:nth-child(3) {
+  animation-duration: 108s;
+  height: 17.5%;
+}
+.Cloud.Background:nth-child(3) {
+  animation-duration: 138s;
+  height: 5.3409090909091%;
+}
+.Cloud:nth-child(2) {
+  animation-delay: -36.923076923077s;
+  top: 12;
+}
+.Cloud.Foreground:nth-child(2) {
+  animation-duration: 112s;
+  height: 15%;
+}
+.Cloud.Background:nth-child(2) {
+  animation-duration: 142s;
+  height: 6.5909090909091%;
+}
+.Cloud:nth-child(1) {
+  animation-delay: -18.461538461538s;
+  top: 6;
+}
+.Cloud.Foreground:nth-child(1) {
+  animation-duration: 116s;
+  height: 12.5%;
+}
+.Cloud.Background:nth-child(1) {
+  animation-duration: 146s;
+  height: 7.8409090909091%;
+}
+.Cloud {
+  background-image: url(./Assets/Cloud.png);
+}
+.Cloud.Background {
+  background-image: url(./Assets/Bgcloud.png);
+}
+html, body {
+  margin: 0;
+  padding: 0;
+}
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+body {
+  color: #FFF;
+  background-color: #FD940A;
+  background-image: radial-gradient(circle,#dda75a 0%,#FA9026 70%,#FB6C1F 100%);
+}
