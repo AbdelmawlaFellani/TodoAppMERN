@@ -38,6 +38,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "concurrently": "^8.2.1",
     "less": "^4.2.0",
     "less-watch-compiler": "^1.16.3",
