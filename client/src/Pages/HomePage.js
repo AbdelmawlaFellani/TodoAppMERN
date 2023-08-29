@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AddForm from "../Components/AddForm";
 import TaskList from "../Components/TaskList";
 import axios from "axios";
+import { MY_URL } from "../Components/globals";
 
 function HomePage() {
   // const [idCount,setIdCount] = useState(4)
@@ -19,7 +20,7 @@ function HomePage() {
     const updatedTasks = tasks.filter((task) => task._id !== id);
     setTasks(updatedTasks);
     axios
-      .delete(`http://localhost:4000/api/tasks/delete/${id}`)
+      .delete(`${MY_URL}/api/tasks/delete/${id}`)
       .then((response) => console.log("Task deleted successfully"))
       .catch((error) => console.log("Task deleted"));
   }
@@ -32,7 +33,7 @@ function HomePage() {
     const updatedTask = updatedTasks.find((task) => task._id === id);
   
     axios
-      .put(`http://localhost:4000/api/tasks/completed/${id}`, { completed: updatedTask.completed })
+      .put(`${MY_URL}/api/tasks/completed/${id}`, { completed: updatedTask.completed })
       .then((res) => {
         setTasks(updatedTasks);
         console.log(updatedTasks);
@@ -43,7 +44,7 @@ function HomePage() {
   }
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/tasks")
+      .get(`${MY_URL}/api/tasks`)
       .then((res) => {
         setTasks(res.data);
       })

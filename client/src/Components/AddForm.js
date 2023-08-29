@@ -13,7 +13,7 @@ function AddForm({ addTask }) {
     if (task.title.trim() !== "") {
       addTask(task);
       axios
-      .post("http://localhost:4000/api/tasks/new", task)
+      .post("https://pixelto-doart.onrender.com/api/tasks/new", task)
       .then((res) => {
         setTask({ title: "" });
       })
