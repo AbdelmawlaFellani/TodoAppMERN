@@ -4,7 +4,7 @@ require("dotenv").config({ path: "./config/.env" });
 
 
 const corsOptions = {
-  origin: "http://localhost:3000" // frontend URI (ReactJS)
+  origin: "https://pixeltodoart.onrender.com" // frontend URI (ReactJS)
 }
 const app = express();
 app.use(express.json());

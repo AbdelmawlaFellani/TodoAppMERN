@@ -1,6 +1,7 @@
 import axios from "axios";
 import { AButton } from "./Buttons";
 import React, { useState } from "react";
+import { MY_URL } from "./globals";
 
 function AddForm({ addTask }) {
   const [task, setTask] = useState({
@@ -13,7 +14,7 @@ function AddForm({ addTask }) {
     if (task.title.trim() !== "") {
       addTask(task);
       axios
-      .post("https://pixelto-doart.onrender.com/api/tasks/new", task)
+      .post(`${MY_URL}/api/tasks/new`, task)
       .then((res) => {
         setTask({ title: "" });
       })
