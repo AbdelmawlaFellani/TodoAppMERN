@@ -30,13 +30,12 @@ router.delete("/delete/:id", (req, res) => {
 });
 
 // Update
-app.put("/completed/:id", (req, res) => {
-  const task = Task.findById(req.params.id)
+router.put("/completed/:id", (req, res) => {
+  Task.findById(req.params.id)
     .then((task) => {
-      res.json({ msg: "Updated successfully" });
       task.completed = !task.completed;
-      task.save();
       res.json(task);
+      task.save();
     })
     .catch((err) =>
       res.status(400).json({ error: "Unable to update the Database" })

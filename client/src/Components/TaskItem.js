@@ -8,7 +8,6 @@ function TaskItem({ task, deleteTask, markCompleted }) {
         <div className=" bg-white col-span-6 md:col-span-10 button text-colortext px-2 mx-4 py-2 text-ellipsis overflow-hidden font-GameText">
           <span className={task.completed ? "line-through text-opacity-75" : ""}>
           {task.title}
-          {console.log(task.title)}
           </span>
         </div>
 

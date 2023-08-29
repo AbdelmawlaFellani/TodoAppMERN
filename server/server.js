@@ -10,7 +10,6 @@ const Tasks = require("./api/tasks");
 const port = process.env.PORT || 4000;
 
 const dbo = require("./db/conn.js");
-// const Task = require("./models/task");
 
 dbo
   .connectToServer()

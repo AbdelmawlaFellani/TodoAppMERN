@@ -9,7 +9,7 @@ function HomePage() {
   function AddTask(task) {
     const newTask = {
       title: task.title,
-      completed: false,
+      completed: task.completed,
     };
     setTasks((prev) => [...prev, newTask]);
     // setIdCount(prev => prev++);
@@ -25,14 +25,17 @@ function HomePage() {
   }
   function MarkCompleted(e, id) {
     e.preventDefault();
-    const updatedTasks = tasks.map((task) =>
-      (task._id === id) ? {...task, completed: !task.completed } : task
+    const updatedTasks = tasks.map((task) => ((task._id === id) ? 
+        {...task, completed: !task.completed } : task)
     );
-    console.log(updatedTasks);
+    
+    const updatedTask = updatedTasks.find((task) => task._id === id);
+  
     axios
-      .put(`http://localhost:4000/api/tasks/completed/${id}`, updatedTasks)
+      .put(`http://localhost:4000/api/tasks/completed/${id}`, { completed: updatedTask.completed })
       .then((res) => {
         setTasks(updatedTasks);
+        console.log(updatedTasks);
       })
       .catch((err) => {
         console.log("Error trying to update");

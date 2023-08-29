@@ -8,3 +8,11 @@ Content-Type: application/json
 {
     "title": "Learning"
 }
+
+###
+
+PUT http://localhost:4000/api/tasks/completed/64ed786a1ac5dd616c9fda20
+
+###
+
+DELETE  http://localhost:4000/api/tasks/delete/64ed5bb04058018c0123b62f
